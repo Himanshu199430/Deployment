@@ -10,10 +10,5 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      - run: |
-          curl -X POST \
-          -H "Authorization: Bearer ${{secrets.G_ACCESS_TOKEN}}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          https://github.com/Himanshu199430/Backend/actions/blank.yml/dispatches \
-          -d '{"ref": "main"}'
-
+run: |
+curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.G_ACCESS_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/Himanshu199430/Backend/dispatches --data '{"event_type": "build_application"}'
