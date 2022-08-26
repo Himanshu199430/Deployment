@@ -4,7 +4,7 @@ name: Trigger Deploy
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
@@ -15,5 +15,5 @@ jobs:
           -H "Authorization: Bearer ${{secrets.G_ACCESS_TOKEN}}" \
           -H "Accept: application/vnd.github.v3+json" \
           https://github.com/Himanshu199430/Backend/blob/main/.github/workflows/blank.yml/dispatches \
-          -d '{"ref": "main"}'
+          -d '{"ref": "master"}'
 
