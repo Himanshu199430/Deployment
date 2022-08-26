@@ -1,19 +1,17 @@
-name: Deploy SNHU Release
+name: Trigger Deploy
+
 on:
   push:
     branches:
       - main
+
 jobs:
-  build:
-    name: Release SNHU
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Release SNHU code
-        run: |
-          echo "Deploy the SNHU Relesae"
-      - uses: convictional/trigger-workflow-and-wait@master
-        with:
-          owner: Himanshu199430
-          repo: Backend
-          github_token: ${{ secrets.G_ACCESS_TOKEN }}
-          workflow_file_name: blank.yaml
+      - run: |
+          curl -X POST \
+          -H "Authorization: Bearer ${{secrets.G_ACCESS_TOKEN}}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/Backend/Himanshu199430/Backend/dispatches \
+          -d '{"ref": "main"}
