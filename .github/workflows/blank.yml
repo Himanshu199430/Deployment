@@ -9,10 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Release SNHU code
-        run: |
-          echo "Deploy the SNHU Relesae"
-      - uses: Himanshu199430/Backend@main
-        with:
           owner: Himanshu199430
           repo: Backend
           github_token: ${{ secrets.G_ACCESS_TOKEN }}
