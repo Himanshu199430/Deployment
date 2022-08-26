@@ -14,4 +14,4 @@ jobs:
           -H "Authorization: Bearer ${{secrets.G_ACCESS_TOKEN}}" \
           -H "Accept: application/vnd.github.v3+json" \
           https://api.github.com/Backend/Himanshu199430/Backend/dispatches \
-          -d '{"ref": "main"}
+          -d '{"ref": "main"}'
