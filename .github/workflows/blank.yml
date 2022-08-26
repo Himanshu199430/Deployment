@@ -1,21 +1,18 @@
-name: Deploy SNHU Release
+---
+name: Trigger Deploy
+
 on:
   push:
     branches:
       - main
+
 jobs:
-  build:
-    name: Release SNHU
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Release SNHU code
-        run: |
-          echo "Deploy the SNHU Relesae"
-          owner: Himanshu199430
-          repo: Backend
-          github_token: ${{ secrets.G_ACCESS_TOKEN }}
-          workflow_file_name: blank.yaml
-      - name: Deploy SNHU Release
-        run: |
-          echo "Deploy SNHU Release"
-          sleep 10s
+      - run: |
+          curl -X POST \
+          -H "Authorization: Bearer ${{secrets.G_ACCESS_TOKEN}}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://github.com/Himanshu199430/Backend/blob/main/.github/workflows/blank.yml/dispatches \
+          -d '{"ref": "main"}'
