@@ -11,7 +11,7 @@ jobs:
       - name: Release SNHU code
         run: |
           echo "Deploy the SNHU Relesae"
-      - uses: 
+      - uses: convictional/trigger-workflow-and-wait@master
         with:
           owner: Himanshu199430
           repo: Backend
