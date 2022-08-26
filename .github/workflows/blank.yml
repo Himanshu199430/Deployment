@@ -15,7 +15,7 @@ jobs:
         with:
           owner: Himanshu199430
           repo: Backend
-          github_token: ${{ secrets.secret }}
+          github_token: ${{ secrets.SECRET }}
           workflow_file_name: blank.yaml
       - name: Deploy SNHU Release
         run: |
