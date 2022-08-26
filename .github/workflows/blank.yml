@@ -10,5 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          run: |
            curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.G_ACCESS_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type:application/json" https://github.com/Himanshu199430/Backend/blob/main/.github/workflows/blank.yml/dispatches --data '{"event_type":"build_application"}'
