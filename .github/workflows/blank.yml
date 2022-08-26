@@ -1,5 +1,5 @@
 ---
-name: Trigger Deploy
+name: Trigger Deploy test
 
 on:
   push:
