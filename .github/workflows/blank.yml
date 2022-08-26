@@ -1,22 +1,21 @@
-          
-          
-name: Deploy SNHU Release
-on:
-  push:
-    branches:
-      - main
+on: [push]
 jobs:
-  build:
-    name: Release SNHU
+  dispatch:
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy Stage
-      uses: actions/github-script@v5
+    # - run: |
+    #     curl -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" \
+    #       -H "Accept: application/vnd.github.everest-preview+json" \
+    #       -H "Content-Type: application/json" \
+    #       https://api.github.com/repos/docker-sstc/docker-notify/actions/workflows/main.yml/dispatches \
+    #       --data '{"ref": "master"}'
+    - uses: actions/github-script@v6
       with:
+        github-token: ${{ secrets.G_ACCESS_TOKEN }}
         script: |
           await github.rest.actions.createWorkflowDispatch({
-            'Himanshu199430',
-            'Backend',
-            'workflows/blank.yml',
-            'main'
-          });
+            owner: 'Himanshu199430',
+            repo: 'Backend',
+            workflow_id: 'blank.yml',
+            ref: 'main'
+          })
