@@ -11,7 +11,7 @@ jobs:
       - name: Release SNHU code
         run: |
           echo "Deploy the SNHU Relesae"
-      - uses: backend  
+      - uses: Himanshu199430/Backend  
         with:
           owner: Himanshu199430
           repo: Backend
