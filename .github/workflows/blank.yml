@@ -1,0 +1,23 @@
+name: Deploy SNHU Release
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: Release SNHU
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release SNHU code
+        run: |
+          echo "Deploy the SNHU Relesae"
+      - uses: snhu/release@v1.0.0
+        with:
+          owner: Himanshu199430
+          repo: Backend
+          github_token: ${{ secrets.SECRET }}
+          workflow_file_name: blank.yaml
+      - name: Deploy SNHU Release
+        run: |
+          echo "Deploy SNHU Release"
+          sleep 10s
