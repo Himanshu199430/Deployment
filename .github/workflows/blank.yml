@@ -9,7 +9,7 @@ jobs:
         #owner: ${{ secrets.PAT_USERNAME }}
         script: |
           await github.rest.actions.createWorkflowDispatch({
-            owner: ${{ github.repository_owner }},
+            owner: '${{ github.repository_owner }}',
             repo: 'Backend',
             workflow_id: 'blank.yml',
             ref: 'main'
