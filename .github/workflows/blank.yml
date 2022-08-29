@@ -14,7 +14,7 @@ jobs:
         github-token: ${{ secrets.G_ACCESS_TOKEN }}
         script: |
           await github.rest.actions.createWorkflowDispatch({
-            owner: '${{ secrets.PAT_USERNAME }}',
+            owner: ${{ secrets.PAT_USERNAME }},
             repo: 'Backend',
             workflow_id: 'blank.yml',
             ref: 'main'
