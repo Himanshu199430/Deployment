@@ -3,13 +3,17 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
+    - name: get owner name
+      run: |
+       owner_name=${{ github.repository_owner }}
+       echo $owner_name
     - uses: actions/github-script@v6
       with:
         github-token: ${{ secrets.G_ACCESS_TOKEN }}
-        owner: ${{ secrets.PAT_USERNAME }}
+        #owner: ${{ secrets.PAT_USERNAME }}
         script: |
           await github.rest.actions.createWorkflowDispatch({
-            owner: owner,
+            owner: owner_name,
             repo: 'Backend',
             workflow_id: 'blank.yml',
             ref: 'main'
