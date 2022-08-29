@@ -6,10 +6,10 @@ jobs:
     - uses: actions/github-script@v6
       with:
         github-token: ${{ secrets.G_ACCESS_TOKEN }}
+        owner: ${{ secrets.PAT_USERNAME }}
         script: |
           await github.rest.actions.createWorkflowDispatch({
-            owner: ${{ secrets.PAT_USERNAME }}
-            repo: 'Backend'
-            workflow_id: 'blank.yml'
+            repo: 'Backend',
+            workflow_id: 'blank.yml',
             ref: 'main'
           })
